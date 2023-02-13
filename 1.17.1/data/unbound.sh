@@ -410,7 +410,4 @@ mkdir -p -m 700 /opt/unbound/etc/unbound/var && \
 chown _unbound:_unbound /opt/unbound/etc/unbound/var && \
 /opt/unbound/sbin/unbound-anchor -a /opt/unbound/etc/unbound/var/root.key
 
-wget -O root.hints https://www.internic.net/domain/named.root
-mv root.hints /opt/unbound/etc/unbound/
-
 exec /opt/unbound/sbin/unbound -d -c /opt/unbound/etc/unbound/unbound.conf

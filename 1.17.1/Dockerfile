@@ -87,6 +87,8 @@ RUN build_deps="curl gcc libc-dev libevent-dev libexpat1-dev libnghttp2-dev make
         --enable-subnet && \
     make install && \
     mv /opt/unbound/etc/unbound/unbound.conf /opt/unbound/etc/unbound/unbound.conf.example && \
+    wget -O root.hints https://www.internic.net/domain/named.root && \
+    mv root.hints "/opt/unbound/etc/unbound/" && \
     apt-get purge -y --auto-remove \
       $build_deps && \
     rm -rf \
